@@ -1,9 +1,4 @@
-/* @import url("./fontLibary/Ts.css"); */
-
-@font-face {
-	font-family: 'Ts';
-	src: url('fontLibary/Canger05w03.ttf') format('truetype');
-}
+@import url("./fontLibary/Ts.css");
 
 :root {
 	--zero: 0;
@@ -74,6 +69,7 @@
 	--font-family-mono: monospace;
 
 	--bg-url-main-1: url(../img/background.jpg);
+	--bg-bing:url(https://tenapi.cn/bing/);
 
 	--bg-color-red-1: #2c9678;
 	--bg-color-blue-1: #2b73af;
@@ -95,6 +91,9 @@ body {
 	font-size: var(--font-size);
 	font-weight: var(--font-weight);
 	color: var(--font-color);
+}
+#app{
+	position: relative;
 }
 
 *::-webkit-scrollbar {
@@ -123,6 +122,7 @@ body {
 	width: var(--full);
 	height: var(--full-screen-y);
 	background-color: var(--bg-color-blue-1);
+	box-shadow: 0 3px 10px #000000;
 }
 
 .topContainer .colorSub {
@@ -212,12 +212,14 @@ body {
 	height: var(--normal-2);
 	min-width: var(--width-min-main-pre);
 	border-radius: var(--little-1);
+	padding-top: 2px;
 	text-align: center;
 	color: var(--font-color-white);
 
 	overflow: hidden;
 	background-color: var(--bg-color-gr-1);
 	-webkit-user-select: none;
+	box-shadow: 0px 10px 10px #36292F;
 }
 
 .mainContainer .pre .code {
@@ -227,6 +229,7 @@ body {
 	width: var(--full);
 	height: var(--nearly);
 	padding: var(--tiny);
+	margin-bottom: -2px;
 	font-weight: lighter;
 	font-family: var(--font-family-Ts) ;
 	text-align: left;
@@ -298,11 +301,11 @@ body {
 
 .motto::after {
 	display: inline-block;
-	position: absolute;
-	top: 7.5ch;
+	
 
 	width: var(--char-a);
 	height: var(--px-4);
+	margin-bottom: calc(10vh - 14px);
 
 	border-radius: var(--px-3);
 	content: '';
@@ -311,11 +314,9 @@ body {
 
 .motto span.colorinfo {
 	left: var(--little-1);
-	top: var(--half);
-	transform: translateY(-10%);
-
-	width: var(--char-1);
-
+	top: var(--little-1);
+	
+	line-height: 2ch;
 	font-size: var(--font-size-min);
 }
 
@@ -329,6 +330,29 @@ body {
 	color: var(--font-color-pe-1);
 }
 
+.videoContainer{
+	position: relative;
+	
+	width: var(--full);
+	height: var(--full-screen-y);
+	
+	background-image: var(--bg-bing);
+}
+video{
+	display: block;
+	position: absolute;
+	top: var(--half);
+	left: var(--half);
+	transform: translate(-50%,-50%);
+	
+	width: 80rem;
+	height: auto;
+	margin: 0 auto;
+	
+	border-radius: 1.25rem;
+	box-shadow: 0 3px 10px #000000;
+	z-index: 60;
+}
 /* main container area end */
 
 /* bottom container area start */
@@ -361,18 +385,19 @@ body {
 .bottomContainer .explainView .icon {
 	width: var(--than-little-4);
 	
-	margin-bottom: var(--than-little-3);
+	padding-top: var(--little-1);
+	margin-bottom: var(--than-little-2);
 	margin-left: var(--than-little-0);
 }
 
 .bottomContainer .explainView .explain {
 	font-size: var(--font-size-min);
 	font-weight: lighter;
-	color: var(--font-);
+	color: var(--font-color-gr-1);
 }
 
 .bottomContainer .explainView .explain a {
-	color: var(--font-color-white);
+	color: var(--font-color-gr-1);
 }
 
 .bottomContainer .qrcodeView {
@@ -399,7 +424,7 @@ body {
 
 
 	content: '扫码加入纳新群';
-	color: var(--font-color-white);
+	color: var(--font-color-gr-1);
 	font-size: var(--font-size-min);
 	font-weight: lighter;
 }
@@ -407,6 +432,8 @@ body {
 .bottomContainer .colorinfo {
 	top: var(--little-1);
 	left: var(--little-1);
+	
+	z-index: 50;
 }
 /* bottom container area end */
 
@@ -458,4 +485,27 @@ body {
 	color: var(--font-color-white);
 	overflow: hidden;
 	transition: width ease-in-out .75s;
+}
+
+.letterTop{
+	width: var(--full);
+	height: 18rem;
+}
+span.hello{
+	--hello-color:#de1c31;
+	
+	display: block;
+	
+	height: 16rem;
+	margin-top: 1.75rem;
+	
+	font-size: 8rem;
+	line-height: 9rem;
+	font-weight: 800;
+	color: var(--hello-color);
+	font-family: var(--font-family-console);
+	text-align: center;
+	
+	-webkit-user-select: none;
+	transition: all ease-in-out 3s;
 }
