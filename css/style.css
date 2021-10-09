@@ -1,4 +1,9 @@
-@import url("./fontLibary/Ts.css");
+/* @import url("./fontLibary/Ts.css"); */
+
+@font-face {
+	font-family: 'Ts';
+	src: url('./fontLibary/Canger05w03.ttf') format('truetype');
+}
 
 :root {
 	--zero: 0;
@@ -363,12 +368,11 @@ body {
 .bottomContainer .explainView .explain {
 	font-size: var(--font-size-min);
 	font-weight: lighter;
-	color: var(--font-color-gr-1);
+	color: var(--font-);
 }
 
 .bottomContainer .explainView .explain a {
-	font-weight: lighter;
-	color: var(--font-color-gr-1);
+	color: var(--font-color-white);
 }
 
 .bottomContainer .qrcodeView {
