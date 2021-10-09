@@ -1,0 +1,439 @@
+@import url("./fontLibary/Ts.css");
+
+:root {
+	--zero: 0;
+	--small: 20%;
+	--than-small: 40%;
+	--half: 50%;
+	--lot: 80%;
+	--nearly: 90%;
+	--full: 100%;
+	--half-screen-x: 50vw;
+	--full-screen-x: 98vw;
+	--small-screen-y: 20vh;
+	--than-small-screen-y: 45vh;
+	--half-screen-y: 50vh;
+	--full-screen-y: 100vh;
+	
+	--tiny-0:.25rem;
+	--tiny:.5rem;
+	--little-1:.75rem;
+	--little-2:3rem;
+	--little-3:7rem;
+	--little-4:8rem;
+	--than-little-0:1.25rem;
+	--than-little-1:1.5rem;
+	--than-little-2:1.75rem;
+	--than-little-3:2.75rem;
+	--than-little-4:3rem;
+	--than-little-5:8.3rem;
+	--normal-0:7.5rem;
+	--normal-1:12rem;
+	--normal-2:24rem;
+	--char-1:1ch;
+	--char-2:1.5ch;
+	--char-3:4ch;
+	--char-4:4.5ch;
+	--char-8:8.5ch;
+	--char-0:-7ch;
+	--char-a:1.25ch;
+	--char-b:8ch;
+	--px-1:1px;
+	--px-3:3px;
+	--px-4:4px;
+	
+	--zindex-1:10;
+	--zindex-2:20;
+	--zindex-3:30;
+	--zindex-4:40;
+	--zindex-5:50;
+	
+	--width-min-html:1200px;
+	--width-min-main-pre:290px;
+	--width-min-bottom-expView:610px;
+	--height-min-main:640px;
+	--height-max-bottom:165px;
+	
+	--font-size: 16px;
+	--font-size-max: 72px;
+	--font-size-big: 48px;
+	--font-size-min: 12px;
+	--font-white: #ffffff;
+	--font-color-white: #eee;
+	--font-color: #022220;
+	--font-weight: 600;
+	--font-family-Ts:Ts;
+	--font-family-console:"lucida console";
+	--font-family-mono: monospace;
+
+	--bg-url-main-1: url(../img/background.jpg);
+
+	--bg-color-red-1: #2c9678;
+	--bg-color-blue-1: #2b73af;
+	--bg-color-pe-1: #2b1216;
+	--bg-color-gr-1: #5d3f51;
+	--bg-color-gr-2: #36292f;
+	--bg-color-gr-3: #7a7374;
+}
+
+/* globe settings start */
+html,
+body {
+	margin: var(--zero);
+	padding: var(--zero);
+
+	min-width: var(--width-min-html);
+
+	font-family: var(--font-family-Ts);
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+	color: var(--font-color);
+}
+
+*::-webkit-scrollbar {
+	width: 0.45rem;
+	height: 0.3rem;
+}
+
+*::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 5px rgba(200, 0, 0, 0.2);
+	background: rgba(0, 172, 255, 0.4);
+}
+
+*::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	border-radius: 0;
+	background: rgba(255, 255, 255, 0.4);
+}
+
+/* globe settings end */
+
+/* top container area start */
+.topContainer {
+	position: relative;
+	top: var(--zero);
+
+	width: var(--full);
+	height: var(--full-screen-y);
+	background-color: var(--bg-color-blue-1);
+}
+
+.topContainer .colorSub {
+	height: var(--than-small-screen-y);
+	background-color: var(--bg-color-red-1);
+}
+
+.topContainer .topicName {
+	display: block;
+	transform: translateY(-25%);
+
+	font-size: var(--font-size-max);
+	color: var(--bg-color-red-1);
+	text-align: center;
+	-webkit-user-select: none;
+}
+
+.topContainer .topicName::before {
+	position: absolute;
+
+	height: var(--half);
+
+	content: attr(data-text);
+	color: var(--bg-color-blue-1);
+
+	overflow: hidden;
+	z-index: 99;
+}
+
+.topContainer img.logo {
+	position: absolute;
+	top: var(--small);
+	left: var(--half);
+	transform: translateX(-50%);
+
+	width: var(--little-3);
+	height: var(--little-4);
+}
+
+.topContainer .arrow {
+	position: absolute;
+	left: var(--half);
+	top: var(--lot);
+
+	width: var(--little-2);
+
+	animation: trJump ease-in-out 1.8s infinite;
+}
+
+.topContainer .colorinfo {
+	bottom: var(--little-1);
+
+	margin: var(--little-1);
+}
+
+.topContainer .colorSub .colorinfo {
+	top: var(--little-1);
+
+	margin: var(--little-1);
+}
+
+/* top container area end */
+
+/* main container area start */
+.mainContainer {
+	position: relative;
+
+	width: var(--full);
+	height: var(--half-screen-x);
+	min-height: var(--height-min-main);
+
+	background-image: var(--bg-url-main-1);
+	background-size: var(--full) var(--full);
+	background-repeat: no-repeat;
+	background-position: center;
+	box-shadow: -1px 3px 5px #000000;
+	z-index: var(--zindex-4);
+}
+
+.mainContainer .pre {
+	position: absolute;
+	top: var(--normal-1);
+	left: var(--half);
+	transform: translateX(-150%);
+
+	width: var(--small);
+	height: var(--normal-2);
+	min-width: var(--width-min-main-pre);
+	border-radius: var(--little-1);
+	text-align: center;
+	color: var(--font-color-white);
+
+	overflow: hidden;
+	background-color: var(--bg-color-gr-1);
+	-webkit-user-select: none;
+}
+
+.mainContainer .pre .code {
+	position: absolute;
+	bottom: var(--zero);
+
+	width: var(--full);
+	height: var(--nearly);
+	padding: var(--tiny);
+	font-weight: lighter;
+	font-family: var(--font-family-Ts) ;
+	text-align: left;
+	line-height: var(--than-little-1);
+
+	color: var(--font-color-white);
+	background-color: var(--bg-color-gr-2);
+	-webkit-user-select: text;
+}
+
+.mainContainer .pre .code::after {
+	display: block;
+	position: absolute;
+	bottom: var(--char-8);
+	left: var(--char-4);
+
+	width: var(--char-2);
+	height: var(--px-1);
+
+	content: ' ';
+	background-color: var(--font-color-white);
+
+	animation: douJump steps(2, jump-none) 1.2s infinite;
+}
+
+.mainContainer .pre .colorinfo {
+	right: var(--little-1);
+}
+
+.mainContainer .pre .code .colorinfo {
+	left: var(--little-1);
+	bottom: var(--little-1);
+}
+
+.motto {
+	position: relative;
+
+	width: var(--full);
+	height: var(--small-screen-y);
+	margin: var(--px-1) var(--zero);
+
+	font-size: var(--font-size-big);
+	text-align: center;
+	line-height: var(--small-screen-y);
+	background-color: var(--bg-color-gr-3);
+
+	box-shadow: 0 10px 20px #000000;
+	z-index: var(--zindex-3);
+	-webkit-user-select: none;
+}
+
+.motto .mottoText {
+	--bit: 32ch;
+	--step: 16;
+
+	position: relative;
+	display: inline-block;
+
+
+	width: var(--zero);
+	height: var(--small-screen-y);
+	margin: var(--zero) auto;
+
+	word-break: break-all;
+
+	overflow: hidden;
+	animation: bitJump steps(var(--step), jump-none) 10s infinite;
+}
+
+.motto::after {
+	display: inline-block;
+	position: absolute;
+	top: var(--char-3);
+
+	width: var(--char-a);
+	height: var(--px-4);
+
+	border-radius: var(--px-3);
+	content: '';
+	background-color: var(--bg-color-pe-1);
+}
+
+.motto span.colorinfo {
+	left: var(--little-1);
+	bottom: var(--char-0);
+
+	width: var(--char-1);
+
+	font-size: var(--font-size-min);
+}
+
+/* main container area end */
+
+/* bottom container area start */
+.bottomContainer {
+	position: relative;
+	bottom: var(--zero);
+
+	width: var(--full);
+	height: var(--small-screen-y);
+	max-height: var(--height-max-bottom);
+	padding: var(--than-little-2) var(--zero);
+
+	background-color: var(--bg-color-pe-1);
+}
+
+.bottomContainer .explainView {
+	position: absolute;
+	bottom: var(--little-1);
+
+	width: var(--half-screen-x);
+	min-width: var(--width-min-bottom-expView);
+	height: var(--lot);
+
+	border-right: var(--font-white) var(--px-1) solid;
+
+	text-align: right;
+	padding-right: var(--char-b);
+}
+
+.bottomContainer .explainView .icon {
+	width: var(--than-little-4);
+	
+	margin-bottom: var(--than-little-3);
+	margin-left: var(--than-little-0);
+}
+
+.bottomContainer .explainView .explain {
+	font-size: var(--font-size-min);
+	font-weight: lighter;
+	color: var(--font-color-white);
+}
+
+.bottomContainer .explainView .explain a {
+	color: var(--font-color-white);
+}
+
+.bottomContainer .qrcodeView {
+	position: absolute;
+	right: var(--zero);
+	bottom: var(--zero);
+
+	width: var(--than-small);
+	height: var(--lot);
+	margin-left: var(--than-little-0);
+	margin-right: var(--than-little-2);
+}
+
+.bottomContainer .qrcodeView img {
+	width: var(--little-4);
+}
+
+.bottomContainer .qrcodeView::after {
+	position: absolute;
+	top: var(--than-little-5);
+	left: var(--tiny-0);
+
+	width: var(--normal-0);
+
+
+	content: '扫码加入纳新群';
+	color: var(--font-color-white);
+	font-size: var(--font-size-min);
+	font-weight: lighter;
+}
+
+.bottomContainer .colorinfo {
+	top: var(--little-1);
+	left: var(--little-1);
+}
+/* bottom container area end */
+
+/* keyframe settings */
+@keyframes trJump {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes douJump {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes bitJump {
+	from {
+		width: 0ch;
+	}
+
+	to {
+		width: var(--bit);
+	}
+}
+
+/* other settings */
+.colorinfo{
+	display: block;
+	position: absolute;
+	width: var(--char-1);
+	font-weight: lighter;
+	color: var(--font-color-white);
+	overflow: hidden;
+	transition: width ease-in-out .75s;
+}
