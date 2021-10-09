@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'Ts';
-	src: url('./fontLibary/Canger05w03.ttf') format('truetype');
+	src: url('fontLibary/Canger05w03.ttf') format('truetype');
 }
 
 :root {
