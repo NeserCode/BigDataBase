@@ -35,7 +35,7 @@
 	--char-3:4ch;
 	--char-4:4.5ch;
 	--char-8:8.5ch;
-	--char-0:-7ch;
+	--char-0:-8ch;
 	--char-a:1.25ch;
 	--char-b:8ch;
 	--px-1:1px;
@@ -56,11 +56,13 @@
 	
 	--font-size: 16px;
 	--font-size-max: 72px;
-	--font-size-big: 48px;
+	--font-size-big: 28px;
 	--font-size-min: 12px;
 	--font-white: #ffffff;
 	--font-color-white: #eee;
 	--font-color: #022220;
+	--font-color-pe-1:#381924;
+	--font-color-gr-1:#5e616d;
 	--font-weight: 600;
 	--font-family-Ts:Ts;
 	--font-family-console:"lucida console";
@@ -292,7 +294,7 @@ body {
 .motto::after {
 	display: inline-block;
 	position: absolute;
-	top: var(--char-3);
+	top: 7.5ch;
 
 	width: var(--char-a);
 	height: var(--px-4);
@@ -304,11 +306,22 @@ body {
 
 .motto span.colorinfo {
 	left: var(--little-1);
-	bottom: var(--char-0);
+	top: var(--half);
+	transform: translateY(-10%);
 
 	width: var(--char-1);
 
 	font-size: var(--font-size-min);
+}
+
+.motto .title{
+	display: block;
+	position: absolute;
+	top: var(--than-small);
+	right: var(--little-1);
+	
+	font-size: var(--font-size-min);
+	color: var(--font-color-pe-1);
 }
 
 /* main container area end */
@@ -350,11 +363,12 @@ body {
 .bottomContainer .explainView .explain {
 	font-size: var(--font-size-min);
 	font-weight: lighter;
-	color: var(--font-color-white);
+	color: var(--font-color-gr-1);
 }
 
 .bottomContainer .explainView .explain a {
-	color: var(--font-color-white);
+	font-weight: lighter;
+	color: var(--font-color-gr-1);
 }
 
 .bottomContainer .qrcodeView {
@@ -418,11 +432,15 @@ body {
 }
 
 @keyframes bitJump {
-	from {
+	0% {
 		width: 0ch;
 	}
 
-	to {
+	80% {
+		width: var(--bit);
+	}
+	
+	100%{
 		width: var(--bit);
 	}
 }
