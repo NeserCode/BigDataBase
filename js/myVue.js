@@ -20,13 +20,46 @@
 const App = {
 	mounted() {
 		this.initApp()
+		this.initVideo()
 		this.changeColor()
+	},
+	watch: {
+		voice(newValue) {
+			let v = document.querySelector('video'),
+				m = document.querySelector('.videoText.v')
+			clearInterval(this.intervalArr[2])
+			
+			v.volume = newValue / 100
+			m.style.opacity = 1
+			this.videoMessage.v = `Volume [ ${newValue} ]`
+			this.intervalArr[2] = setTimeout(()=>{
+				m.style.opacity = 0
+			},1500)
+		},
+		process(){
+			let v = document.querySelector('video'),
+				m = document.querySelector('.videoText.p')
+			clearInterval(this.intervalArr[3])
+			
+			m.style.opacity = 1
+			this.videoMessage.p = `Process [ ${v.currentTime.toFixed(1)}s/${v.duration.toFixed(1)}s ]`;
+			this.intervalArr[3] = setTimeout(()=>{
+				m.style.opacity = 0
+			},1500)
+		}
 	},
 	data() {
 		return {
+			isRunVideo: false,
+			voice: 60,
+			process: 0,
 			counter: 0,
-			useString: '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~©·—‘’“”…、。《》【】一上不与东个中为么乐也了于云享人什他代们优会但体你使值入全关其再决制前力办加努势北华卷历去受古台同向员咨品哪喜因困国地多大天奔如学宇完官宙定实室寄察将少就山己常平年幸度开式归彩很得心忙快怕总惫想感成我或所才打扫扮据控数断新方无时是智暇暖最有本权李条来果查树欢死每比气没河法波活济浪温滴漫灰点熟爬爱生用由电疲痛百的看真知矾码研砥砺碌社福秀种究空笨算系紫累纳终经绿网群者而联能腾自致色若苦蓝虚蛋行装西要觉解计让讯论访评识词询语请贵赢走路输迎这进远退通道都配野锌问间阅阳难雅青页驭验鱼鼎龄！（），：；？￥',
-			interval: null,
+			videoMessage:{
+				p:'',
+				v:'',
+			},
+			useString: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~©·—‘’“”…、。《》【】一上不与东个中为么乐也了二于云享人什他代们优会但体你使侧值入全关其再决制前力办功加努势北华即卷历去发受古可台同向员咨品哪啦喜因困国图在地多大天奔如学宇完官宙定实室寄察将少就山左己常平年幸应度开式归彩很得心必忙快怕总惫想感成我或所才打扫扮据控描放数断新方无时是智暇暖更最有本权李条来果查树欢正死每比气没河法波活济浪温滴漫灰点熟爬爱片理生用由申电疲痛百的看真知矾码研砥砺碌社福秀种究空笨算管系紫累纳终经维绿网群者而联能腾自致色若苦蓝虚蛋行装西要觉解计让讯论访评识词询该语请贵赢走起路输迎这进远退通道都配野锌问间阅阳难雅青页题驭验鱼鼎龄！（），：；？￥',
+			intervalArr: [null, null,null,null],
 			bigData: {
 				pickName: '大数据',
 				name: '大数据智能与云计算中心',
@@ -49,7 +82,7 @@ const App = {
 				'#22a2c3', //海青
 				'#30161c', //卵石紫
 			],
-			allColors:[
+			allColors: [
 				'青矾绿 | #2c9678',
 				'品蓝 | #2b73af',
 				'紫灰 | #2b1216',
@@ -162,10 +195,34 @@ const App = {
 		changeColor: function(index) {
 			let target = document.querySelector('span.hello')
 
-			if (index >= 0){
+			if (index >= 0) {
 				target.style.setProperty('--hello-color', this.helloColor[index])
-				return 1;
-			}else return 0;
+				return 1
+			} else return 0
+		},
+		videoToggle: function() {
+			let video = document.querySelector('video')
+
+			if (!this.isRunVideo) video.play()
+			else video.pause()
+			this.isRunVideo = !this.isRunVideo
+		},
+		videoSoundToggle: function() {
+			if (this.voice > 0) this.voice = 0
+			else this.voice = 45
+		},
+		videoTimeFollow: function() {
+			let video = document.querySelector('video')
+
+			if (!video.ended && !video.paused) return true
+			else return false
+		},
+		videoCon:function(e){
+			let v = document.querySelector('video'),
+				positionX = e.clientX - e.target.offsetLeft
+			v.currentTime = (positionX / 920) * v.duration
+			// this.process = Math.floor(video.currentTime / video.duration * 1000)
+			console.log('定位到',v.currentTime,'sec');
 		},
 		initApp: function() {
 			let i = 1,
@@ -173,14 +230,23 @@ const App = {
 
 			document.querySelector('.colorinfo').style.width = '1ch'
 			console.log('欢迎访问大数据实验室官网')
+			console.log('请使用最新版本Edge或Chrome浏览器以获得最佳体验\n提醒：本页暂不支持IE任何版本浏览器')
 			console.log("查看本页使用的所有色彩，请于控制台输入：\nApp.data().allColors.forEach((item)=>{console.log(item)})")
 			console.log("查看所有寄语，请于控制台输入：\nApp.data().motto.forEach((item)=>{console.log(item.text)})")
 			console.log("查看本页使用的所有字符，请于控制台输入：\nApp.data().useString")
 
-			this.interval = setInterval(() => {
+			this.intervalArr[0] = setInterval(() => {
 				if (this.animateKeyword(i)) i = i == this.motto.length - 1 ? 0 : i + 1
 				if (this.changeColor(j)) j = j == this.helloColor.length - 1 ? 0 : j + 1
 			}, 10000)
+		},
+		initVideo: function() {
+			let video = document.querySelector('video')
+			
+			this.intervalArr[1] = setInterval(()=>{
+				if (this.videoTimeFollow())
+					this.process = Math.floor(video.currentTime / video.duration * 1000)
+			},100)
 		}
 	}
 };

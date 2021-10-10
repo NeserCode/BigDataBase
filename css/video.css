@@ -1,0 +1,67 @@
+/** 
+ * @video.css
+**/
+.videoContainer{
+	position: relative;
+	
+	width: var(--full);
+	height: var(--full-screen-y);
+	
+	background-image: var(--bg-bing);
+}
+.videoOpArea{
+	position: absolute;
+	top: calc(50vh - 270px);
+	right: calc(50% - 480px - 6rem);
+	
+	width: 5.4rem;
+	height: 540px;
+	
+	border-radius: .75rem;
+	background-color: var(--bg-color-blue-1);
+	box-shadow: 0 3px 10px #000000;
+}
+.videoOpArea .toggle{
+	margin: 1.25rem auto;
+	
+	text-align: center;
+}
+.videoOpArea .soundArea svg{
+	display: inline-block;
+	position: absolute;
+	bottom: 3.25rem;
+	left: calc( 50% - 24px );
+}
+.videoText{
+	display: inline-block;
+	position: absolute;
+	top: calc(50vh - 270px + .75rem);
+	right: calc(50% - 480px + 1.25rem);
+	
+	text-align: right;
+	font-size: var(--font-size);
+	color: var(--font-color-white);
+	
+	opacity: 0;
+	transition: opacity ease-in-out .5s;
+	-webkit-user-select: none;
+	z-index: 70;
+}
+.videoText.v{
+	top: calc(50vh - 270px + 2.1rem);
+}
+video{
+	display: block;
+	position: absolute;
+	top: var(--half);
+	left: var(--half);
+	transform: translate(-50%,-50%);
+	
+	width: 960px;
+	height: 540px;
+	margin: 0 auto;
+	
+	border-radius: 1.25rem;
+	box-shadow: 0 3px 10px #000000;
+	z-index: 60;
+}

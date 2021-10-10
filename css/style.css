@@ -27,6 +27,7 @@
 	--than-little-3:2.75rem;
 	--than-little-4:3rem;
 	--than-little-5:8.3rem;
+	--than-little-6:8.8rem;
 	--normal-0:7.5rem;
 	--normal-1:12rem;
 	--normal-2:24rem;
@@ -329,30 +330,6 @@ body {
 	font-size: var(--font-size-min);
 	color: var(--font-color-pe-1);
 }
-
-.videoContainer{
-	position: relative;
-	
-	width: var(--full);
-	height: var(--full-screen-y);
-	
-	background-image: var(--bg-bing);
-}
-video{
-	display: block;
-	position: absolute;
-	top: var(--half);
-	left: var(--half);
-	transform: translate(-50%,-50%);
-	
-	width: 80rem;
-	height: auto;
-	margin: 0 auto;
-	
-	border-radius: 1.25rem;
-	box-shadow: 0 3px 10px #000000;
-	z-index: 60;
-}
 /* main container area end */
 
 /* bottom container area start */
@@ -366,9 +343,10 @@ video{
 	padding: var(--than-little-2) var(--zero);
 
 	background-color: var(--bg-color-pe-1);
+	overflow: hidden;
 }
 
-.bottomContainer .explainView {
+.explainView {
 	position: absolute;
 	bottom: var(--little-1);
 
@@ -382,7 +360,7 @@ video{
 	padding-right: var(--char-b);
 }
 
-.bottomContainer .explainView .icon {
+.explainView .icon {
 	width: var(--than-little-4);
 	
 	padding-top: var(--little-1);
@@ -390,20 +368,21 @@ video{
 	margin-left: var(--than-little-0);
 }
 
-.bottomContainer .explainView .explain {
+.explainView .explain {
 	font-size: var(--font-size-min);
 	font-weight: lighter;
 	color: var(--font-color-gr-1);
 }
 
-.bottomContainer .explainView .explain a {
+.explainView .explain a {
 	color: var(--font-color-gr-1);
 }
 
-.bottomContainer .qrcodeView {
-	position: absolute;
+.qrcodeView {
+	position: relative;
+	transform: translateX(140%);
 	right: var(--zero);
-	bottom: var(--zero);
+	top: var(--than-little-2);
 
 	width: var(--than-small);
 	height: var(--lot);
@@ -411,22 +390,18 @@ video{
 	margin-right: var(--than-little-2);
 }
 
-.bottomContainer .qrcodeView img {
+.qrcodeView img {
 	width: var(--little-4);
 }
 
-.bottomContainer .qrcodeView::after {
+.qrcodeView .explainView{
 	position: absolute;
-	top: var(--than-little-5);
-	left: var(--tiny-0);
-
-	width: var(--normal-0);
-
-
-	content: '扫码加入纳新群';
-	color: var(--font-color-gr-1);
-	font-size: var(--font-size-min);
-	font-weight: lighter;
+	bottom: 0;
+	left: var(--than-little-6);
+	
+	border: 0;
+	
+	text-align: left;
 }
 
 .bottomContainer .colorinfo {
@@ -486,7 +461,19 @@ video{
 	overflow: hidden;
 	transition: width ease-in-out .75s;
 }
-
+.paperInfo{
+	display: inline-block;
+	position: absolute;
+	top: .75rem;
+	right: .75rem;
+	
+	padding: .5rem .75rem;
+	
+	text-align: right;
+	border-radius: 4px;
+	font-family: var(--font-family-Ts);
+	background-color: rgba(255,255,255,.6);
+}
 .letterTop{
 	width: var(--full);
 	height: 18rem;

@@ -1,0 +1,26 @@
+/** 
+ * @slider.css
+**/
+input.voice[type=range]{
+	writing-mode: bt-lr;
+	/* IE */
+	-webkit-appearance: slider-vertical;
+	/* WebKit */
+	
+	position: absolute;
+	bottom: 6.75rem;
+	left: calc(50% - 4px);
+	width: 4px;
+	height: 60%;
+	ouline:0;
+}
+
+input.process[type=range]{
+	position: absolute;
+	bottom: calc(50% - 250px);
+	left: calc(50% - 460px);
+	width: 920px;
+	height: 3px;
+	z-index: 60;
+	ouline:0;
+}
