@@ -1,0 +1,127 @@
+/* media settings */
+@media only screen and (max-width:450px) {
+
+	html,
+	body {
+		min-width: 350px;
+		font-size: 8px;
+	}
+
+	.colorinfo {
+		display: none;
+	}
+
+	.topContainer {
+		font-size: xx-small;
+		height: 580px;
+	}
+
+	.topContainer .colorSub {
+		width: 100vw;
+		height: 280px;
+	}
+	
+	.topContainer .topicName{
+		font-size: 4rem;
+	}
+	
+	.topContainer .arrow{
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	span.hello{
+		font-size: 6.4rem;
+	}
+
+	.mainContainer {
+		background-image: none;
+		background-color: #5E616D;
+		min-width: 350px;
+	}
+	
+	.mainContainer .pre{
+		height: 40ch;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		
+		font-size: 14px;
+		line-height: 2.5ch;
+	}
+	
+	.mainContainer .pre .code{
+		font-size: 14px;
+		line-height: 2.5ch;
+	}
+	
+	.mainContainer .pre + .sub{
+		display: inline-block;
+		position: absolute;
+		bottom: calc(60% - 18rem - 7ch);
+		
+		width: 100%;
+		height: 2ch;
+		
+		font-size: 12px;
+		text-align: center;
+		line-height: 2ch;
+	}
+	
+	.mainContainer .pre .code::after {
+		display: block;
+		position: absolute;
+		bottom: 7.5ch;
+		left: var(--char-4);
+	}
+	
+	.motto{
+		display: none;
+	}
+	
+	.bottomContainer{
+		max-height: none;
+		width: 100%;
+		height: 320px;
+	}
+	
+	.bottomContainer .explainView .icon{
+		width: 6rem;
+		margin: .75rem calc( ( 100% - 24rem ) / 16 );
+		margin-bottom: 2.75rem;
+	}
+	
+	.bottomContainer .explainView{
+		min-width: 0;
+		position: static;
+		width: 100%;
+		height: auto;
+		
+		border: 0;
+		
+		text-align: center;
+		padding: 1rem;
+	}
+	
+	.qrcodeView{
+		position: static;
+		transform: none;
+		
+		padding: 2rem;
+	}
+	
+	.qrcodeView img{
+		width: 8rem;
+		padding: 3rem;
+		position: relative;
+		float: left;
+	}
+	
+	.qrcodeView .explainView{
+		position: static;
+		width: calc(100vw - 10rem);
+		border: 0;
+		
+		text-align: left;
+	}
+}

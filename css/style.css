@@ -1,4 +1,5 @@
 @import url("./fontLibary/Ts.css");
+@import url("./fontLibary/Console.css");
 
 :root {
 	--zero: 0;
@@ -65,8 +66,8 @@
 	--font-color-pe-1:#381924;
 	--font-color-gr-1:#5e616d;
 	--font-weight: 600;
-	--font-family-Ts:Ts;
-	--font-family-console:"lucida console";
+	--font-family-Ts: Ts;
+	--font-family-console: Console;
 	--font-family-mono: monospace;
 
 	--bg-url-main-1: url(../img/background.jpg);
@@ -155,7 +156,7 @@ body {
 
 .topContainer img.logo {
 	position: absolute;
-	top: var(--small);
+	bottom: 70%;
 	left: var(--half);
 	transform: translateX(-50%);
 
@@ -254,6 +255,10 @@ body {
 	background-color: var(--font-color-white);
 
 	animation: douJump steps(2, jump-none) 1.2s infinite;
+}
+
+.mainContainer .pre + .sub{
+	display: none;
 }
 
 .mainContainer .pre .colorinfo {
@@ -376,6 +381,12 @@ body {
 
 .explainView .explain a {
 	color: var(--font-color-gr-1);
+	
+	transition: all ease-in-out .3s;
+}
+
+.explainView .explain a:hover{
+	color: var(--font-color-white);
 }
 
 .qrcodeView {

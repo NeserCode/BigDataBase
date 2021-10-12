@@ -19,47 +19,55 @@
 
 const App = {
 	mounted() {
+		// console.log(window.screen.width+" * "+window.screen.height);
+
 		this.initApp()
 		this.initVideo()
 		this.changeColor()
 	},
+	computed: {},
 	watch: {
 		voice(newValue) {
 			let v = document.querySelector('video'),
 				m = document.querySelector('.videoText.v')
 			clearInterval(this.intervalArr[2])
-			
+
 			v.volume = newValue / 100
 			m.style.opacity = 1
 			this.videoMessage.v = `Volume [ ${newValue} ]`
-			this.intervalArr[2] = setTimeout(()=>{
+			this.intervalArr[2] = setTimeout(() => {
 				m.style.opacity = 0
-			},1500)
+			}, 1500)
 		},
-		process(){
+		process() {
 			let v = document.querySelector('video'),
 				m = document.querySelector('.videoText.p')
 			clearInterval(this.intervalArr[3])
-			
+
 			m.style.opacity = 1
 			this.videoMessage.p = `Process [ ${v.currentTime.toFixed(1)}s/${v.duration.toFixed(1)}s ]`;
-			this.intervalArr[3] = setTimeout(()=>{
+			this.intervalArr[3] = setTimeout(() => {
 				m.style.opacity = 0
-			},1500)
+			}, 1500)
 		}
 	},
 	data() {
 		return {
 			isRunVideo: false,
+			isVideoControl: null,
 			voice: 60,
 			process: 0,
 			counter: 0,
-			videoMessage:{
-				p:'',
-				v:'',
+			videoMessage: {
+				p: '',
+				v: '',
+			},
+			screenObj: {
+				width: 0,
+				height: 0,
 			},
 			useString: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~©·—‘’“”…、。《》【】一上不与东个中为么乐也了二于云享人什他代们优会但体你使侧值入全关其再决制前力办功加努势北华即卷历去发受古可台同向员咨品哪啦喜因困国图在地多大天奔如学宇完官宙定实室寄察将少就山左己常平年幸应度开式归彩很得心必忙快怕总惫想感成我或所才打扫扮据控描放数断新方无时是智暇暖更最有本权李条来果查树欢正死每比气没河法波活济浪温滴漫灰点熟爬爱片理生用由申电疲痛百的看真知矾码研砥砺碌社福秀种究空笨算管系紫累纳终经维绿网群者而联能腾自致色若苦蓝虚蛋行装西要觉解计让讯论访评识词询该语请贵赢走起路输迎这进远退通道都配野锌问间阅阳难雅青页题驭验鱼鼎龄！（），：；？￥',
-			intervalArr: [null, null,null,null],
+			intervalArr: [null, null, null, null],
 			bigData: {
 				pickName: '大数据',
 				name: '大数据智能与云计算中心',
@@ -208,8 +216,11 @@ const App = {
 			this.isRunVideo = !this.isRunVideo
 		},
 		videoSoundToggle: function() {
-			if (this.voice > 0) this.voice = 0
-			else this.voice = 45
+			if (this.voice > 0){
+				localStorage.setItem('voice',this.voice)
+				this.voice = 0
+			}
+			else this.voice = localStorage.getItem('voice')??localStorage.getItem('voice')
 		},
 		videoTimeFollow: function() {
 			let video = document.querySelector('video')
@@ -217,16 +228,21 @@ const App = {
 			if (!video.ended && !video.paused) return true
 			else return false
 		},
-		videoCon:function(e){
+		videoCon: function(e) {
 			let v = document.querySelector('video'),
 				positionX = e.clientX - e.target.offsetLeft
 			v.currentTime = (positionX / 920) * v.duration
 			// this.process = Math.floor(video.currentTime / video.duration * 1000)
-			console.log('定位到',v.currentTime,'sec');
 		},
 		initApp: function() {
 			let i = 1,
 				j = 1
+
+			this.screenObj.width = window.screen.width
+			this.screenObj.height = window.screen.height
+			this.isVideoControl = this.screenObj.width > 450 ? false : true
+			document.querySelector(':root').style.setProperty('--height-min-m-video', (this.screenObj.width *
+				540 / 960) + 'px')
 
 			document.querySelector('.colorinfo').style.width = '1ch'
 			console.log('欢迎访问大数据实验室官网')
@@ -242,11 +258,11 @@ const App = {
 		},
 		initVideo: function() {
 			let video = document.querySelector('video')
-			
-			this.intervalArr[1] = setInterval(()=>{
+
+			this.intervalArr[1] = setInterval(() => {
 				if (this.videoTimeFollow())
 					this.process = Math.floor(video.currentTime / video.duration * 1000)
-			},100)
+			}, 100)
 		}
 	}
 };

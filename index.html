@@ -3,11 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>砥砺前行 | 大数据实验室</title>
 		<link rel="icon" href="./img/newlogo.png" />
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<link rel="stylesheet" type="text/css" href="./css/slider.css" />
 		<link rel="stylesheet" type="text/css" href="./css/video.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/media.css"/>
 	</head>
 	<body>
 		<!–[if lt IE 7]>
@@ -73,12 +75,22 @@
 						})();
 					</div>
 				</div>
+				<span class="sub">开启你的代码第一步</span>
 			</div>
 			<div class="videoContainer">
 				<span class="paperInfo">图片来自 <a href="https://cn.bing.com" target="viewBox">必应 · bing.com</a></span>
 				<span class="videoText p">{{videoMessage.p}}</span>
 				<span class="videoText v">{{videoMessage.v}}</span>
 				<video src="./video/fornew.mp4"
+					class="control"
+					v-if="isVideoControl"
+					loop='loop'
+					preload="metadata"
+					controls="controls"
+					poster="video/preview.png">当前浏览器不支持audio
+				</video>
+				<video src="./video/fornew.mp4"
+					v-if="!isVideoControl"
 					loop='loop'
 					preload="metadata"
 					poster="video/preview.png">当前浏览器不支持audio
@@ -160,7 +172,7 @@
 					<div class="explainView">
 						<span class="explain">欢迎加入大数据实验室</span><br>
 						<span class="explain">开放时间：自2021/10/01起</span><br>
-						<span class="explain">扫描左侧二维码即可申请加入最新实验室纳新群（QQ）</span><br>
+						<span class="explain">扫描左侧二维码即可申请加入最新实验室纳新群</span><br>
 						<span class="explain">咨询问题请联系该群管理或使用左方联系方式</span><br>
 						<span class="explain">更多更多功能正在研发中啦~</span><br>
 					</div>
