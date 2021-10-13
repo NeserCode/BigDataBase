@@ -85,14 +85,12 @@
 					class="control"
 					v-if="isVideoControl"
 					loop='loop'
-					preload="metadata"
 					controls="controls"
 					poster="video/preview.png">当前浏览器不支持audio
 				</video>
 				<video src="./video/fornew.mp4"
 					v-if="!isVideoControl"
 					loop='loop'
-					preload="metadata"
 					poster="video/preview.png">当前浏览器不支持audio
 				</video>
 				<div class="videoOpArea">
