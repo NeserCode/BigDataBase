@@ -7,18 +7,23 @@
 ## Contains
 
   由 Vue.js 驱动。
+  
   It is driven by Vue.js.
   
 ## How get it
 
   它将被暂时的部署于Github Pages中，请访问 https://nesercode.github.io 。
+  
   It will be a temporary deployment in making Pages, please visit https://nesercode.github.io .
   
 ## Authority
 
   由 北华大学大数据实验室 共同创作。
+  
   It is co-created by big Data Lab of Beihua University.
   
-## Thanks
+## Thanks :)
+  
+  ❤ 写于中国吉林北华大学。
   
   ❤ Type at Beihua University in Jilin,China.
