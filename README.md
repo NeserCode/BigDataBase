@@ -22,7 +22,7 @@
   
   It is co-created by big Data Lab of Beihua University.
   
-## Thanks :)
+## Thanks : )
   
   ❤ 写于中国吉林北华大学。
   
