@@ -12,9 +12,9 @@
   
 ## How get it
 
-  它将被暂时的部署于Github Pages中，请访问 https://nesercode.github.io 。
+  它将被暂时的部署于Github Pages中，请访问 https://nesercode.github.io/BigDataBase/ 。
   
-  It will be a temporary deployment in making Pages, please visit https://nesercode.github.io .
+  It will be a temporary deployment in making Pages, please visit https://nesercode.github.io/BigDataBase/ .
   
 ## Authority
 
